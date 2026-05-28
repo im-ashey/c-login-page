@@ -1,8 +1,30 @@
 #include <stdio.h>
 
+char users[3][6] = {"user1", "user2", "admin"};
+char passwords[3][13] = {"goodpassword", "badpassword", "adminpassword"};
+
+int checkIndexes(char user, char password) {
+	int usersSize = sizeof(users) / sizeof(users[0]);
+	int passwordsSize = sizeof(passwords) / sizeof(passwords[0]);
+
+	for (int i = 0; i < usersSize; i++) {
+		if (users[i] == user) {
+			int userIndex = i;
+			printf("%c", (char)(userIndex));
+		}
+	}
+
+	for (int i = 0; i < passwordsSize; i++) {
+		if (passwords[i] == password) {
+			int passwordIndex = i;
+			printf("%c", (char)(passwordIndex));
+		}
+	}
+
+	return 0;
+}
+
 int main() {
-	char users[3][6] = {"user1", "user2", "admin"};
-	char passwords[3][13] = {"goodpassword", "badpassword", "adminpassword"};
 
    	for (int i = 0; i < 3; i++) { // this syntax looks just like javascript! :)
    		printf(users[i]);
@@ -10,6 +32,8 @@ int main() {
       	printf(passwords[i]);
       	printf("\n");
     }
+
+    checkIndexes("user1", "adminpassword");
 
    	return 0;
 }
